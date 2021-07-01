@@ -47,26 +47,75 @@
 </head>
 
 <body">
-    <p>The onclick event is used to trigger a function when an element is clicked on.</p>
+    <p>点击购买按钮触发购买事件埋点</p>
 
-    <p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
-
-    <button onclick="myFunction()">Click me</button>
-
-    <p id="demo"></p>
+    <p>点击购买退款触发购买事件埋点</p>
+      
+    <p>点击用户按钮触发用户属性埋点</p>
+    <button onclick="senduser_properties()">更新用户属性</button>
+    <button onclick="sendPurchaseEventTrace()">购买</button>
+    <button onclick="sendRefundEventTrace()">退款</button>
+                                                <button onclick="sendViewCartEventTrace()">浏览购物车</button>
+    <p id="示例"></p>
 
     <script>
-    function myFunction() {
-      document.getElementById("demo").innerHTML = "send event";
-         gtag('event', 'view_item_list', {
+    function sendPurchaseEventTrace() {
+            gtag('event', 'purchase', {
+                  affiliation: 'Google Store',
+                  coupon: 'SUMMER_FUN',
+                  currency: 'USD',
+                  items: [{
+                    item_id: 'SKU_12345',
+                    item_name: 'jeggings',
+                    coupon: 'SUMMER_FUN',
+                    discount: 2.22,
+                    affiliation: 'Google Store',
+                    item_brand: 'Gucci',
+                    item_category: 'pants',
+                    item_variant: 'black',
+                    price: 9.99,
+                    currency: 'USD',
+                    quantity: 1
+                  }, {
+                    item_id: 'SKU_12346',
+                    item_name: 'jeggings',
+                    coupon: 'SUMMER_FUN',
+                    discount: 2.22,
+                    affiliation: 'Google Store',
+                    item_brand: 'Gucci',
+                    item_category: 'pants',
+                    item_variant: 'gray',
+                    price: 9.99,
+                    currency: 'USD',
+                    quantity: 1
+                  }],
+                  transaction_id: 'T_12345',
+                  shipping: 3.33,
+                  value: 21.09,
+                  tax: 2.22
+                });
+    }
+              
+     function sendRefundEventTrace(){
+      gtag('event', 'refund', {
+          affiliation: 'Google Store',
+          coupon: 'SUMMER_FUN',
+          currency: 'USD',
+          transaction_id: 'T_12345',
+          shipping: 3.33,
+          value: 12.21,
+          tax: 1.11
+        });        
+      }
+              
+     function sendViewCartEventTrace(){
+      gtag('event', 'view_cart', {
+          currency: 'USD',
           items: [{
             item_id: 'SKU_12345',
             item_name: 'jeggings',
             coupon: 'SUMMER_FUN',
             discount: 2.22,
-            index: 5,
-            item_list_name: 'Related Products',
-            item_list_id: 'related_products',
             affiliation: 'Google Store',
             item_brand: 'Gucci',
             item_category: 'pants',
@@ -75,10 +124,17 @@
             currency: 'USD',
             quantity: 1
           }],
-          item_list_name: 'Related products',
-          item_list_id: 'related_products'
+          value: 7.77
+        });      
+      }
+       function senduser_properties(){        
+        gtag('set', 'user_properties', {
+          favorite_composer: 'Mahler1',
+          favorite_instrument: 'double bass1',
+          season_ticketholder: 'false',
+          favorite_count:1000 
         });
-    }
+              }
     </script>
    
 </body>
