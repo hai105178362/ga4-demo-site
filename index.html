@@ -15,26 +15,7 @@
         gtag('js', new Date());
 
         gtag('config', 'G-81VVGF8PP7');
-        gtag('event', 'view_item_list', {
-          items: [{
-            item_id: 'SKU_12345',
-            item_name: 'jeggings',
-            coupon: 'SUMMER_FUN',
-            discount: 2.22,
-            index: 5,
-            item_list_name: 'Related Products',
-            item_list_id: 'related_products',
-            affiliation: 'Google Store',
-            item_brand: 'Gucci',
-            item_category: 'pants',
-            item_variant: 'black',
-            price: 9.99,
-            currency: 'USD',
-            quantity: 1
-          }],
-          item_list_name: 'Related products',
-          item_list_id: 'related_products'
-        });
+  
         
         gtag('set', 'user_properties', {
           favorite_composer: 'Mahler',
@@ -66,7 +47,39 @@
 </head>
 
 <body">
-hello GA555
+    <p>The onclick event is used to trigger a function when an element is clicked on.</p>
+
+    <p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
+
+    <button onclick="myFunction()">Click me</button>
+
+    <p id="demo"></p>
+
+    <script>
+    function myFunction() {
+      document.getElementById("demo").innerHTML = "send event";
+         gtag('event', 'view_item_list', {
+          items: [{
+            item_id: 'SKU_12345',
+            item_name: 'jeggings',
+            coupon: 'SUMMER_FUN',
+            discount: 2.22,
+            index: 5,
+            item_list_name: 'Related Products',
+            item_list_id: 'related_products',
+            affiliation: 'Google Store',
+            item_brand: 'Gucci',
+            item_category: 'pants',
+            item_variant: 'black',
+            price: 9.99,
+            currency: 'USD',
+            quantity: 1
+          }],
+          item_list_name: 'Related products',
+          item_list_id: 'related_products'
+        });
+    }
+    </script>
    
 </body>
 
