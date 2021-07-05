@@ -136,14 +136,11 @@
        
        function senduser_properties(){ 
         var data = {};
-        var key1 = uuidv4()
+        var key1 = uuidv4();
         data[key1] = key1;
-        gtag('set', 'user_properties', {
-          uuidv1: 'Mahler1',
-          uuidv2: 'double bass1',
-          uuidv2: 'false',
-          uuidv3:1000 
-        });
+              var key2 = uuidv4();
+         data[key2] = key2;
+        gtag('set', 'user_properties', data);
               }
     </script>
    
