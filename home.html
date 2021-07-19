@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://youhui.pinduoduo.com/search/landing?keyword= -->
+<html>
+
+<head>
+
+    
+   
+
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>包邮优惠|特价－拼多多优惠商城</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="keywords" content="优惠券|包邮|特价|全网最低">
+    <meta name="description" content="超多优惠，实惠多多，乐趣多多，就在拼多多优惠商城！">
+    <meta name="baidu-site-verification" content="tk4VA7ginX">
+    <meta name="360-site-verification" content="69745aea5bcc669978016bb0f049b47f">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" class="next-head">
+    <meta name="keywords" content="优惠券|包邮|特价|全网最低" class="next-head">
+    <meta name="description" content="超多优惠，实惠多多，乐趣多多，就在拼多多优惠商城！" class="next-head">
+    <meta name="baidu-site-verification" content="tk4VA7ginX" class="next-head">
+    <meta name="360-site-verification" content="69745aea5bcc669978016bb0f049b47f" class="next-head">
+</head>
+
+<body">
+    <p>点击购买按钮触发购买事件埋点</p>
+
+    <p>点击购买退款触发购买事件埋点</p>
+      
+    <p>点击用户按钮触发用户属性埋点</p>
+    <button">更新用户属性</button>
+    <button ">购买</button>
+    <button">退款</button>
+    <button ">浏览购物车</button>
+    <p id="示例"></p>
+
+    <script>
+    function uuidv4() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+    function sendPurchaseEventTrace() {
+            gtag('event', 'purchase', {
+                  affiliation: 'Google Store',
+                  coupon: 'SUMMER_FUN',
+                  currency: 'USD',
+                  items: [{
+                    item_id: 'SKU_12345',
+                    item_name: 'jeggings',
+                    coupon: 'SUMMER_FUN',
+                    discount: 2.22,
+                    affiliation: 'Google Store',
+                    item_brand: 'Gucci',
+                    item_category: 'pants',
+                    item_variant: 'black',
+                    price: 9.99,
+                    currency: 'USD',
+                    quantity: 1
+                  }, {
+                    item_id: 'SKU_12346',
+                    item_name: 'jeggings',
+                    coupon: 'SUMMER_FUN',
+                    discount: 2.22,
+                    affiliation: 'Google Store',
+                    item_brand: 'Gucci',
+                    item_category: 'pants',
+                    item_variant: 'gray',
+                    price: 9.99,
+                    currency: 'USD',
+                    quantity: 1
+                  }],
+                  transaction_id: 'T_12345',
+                  shipping: 3.33,
+                  value: 21.09,
+                  tax: 2.22
+                });
+    }
+              
+     function sendRefundEventTrace(){
+      gtag('event', 'refund_custom', {
+          affiliation: 'Google Store',
+          coupon: 'SUMMER_FUN',
+          currency: 'USD',
+          transaction_id: 'T_12345',
+          shipping: 3.33,
+          value: 12.21,
+          tax: 1.11
+        });        
+      }
+              
+     function sendViewCartEventTrace(){
+      gtag('event', 'view_cart', {
+          currency: 'USD',
+          items: [{
+            item_id: 'SKU_12345',
+            item_name: 'jeggings',
+            coupon: 'SUMMER_FUN',
+            discount: 2.22,
+            affiliation: 'Google Store',
+            item_brand: 'Gucci',
+            item_category: 'pants',
+            item_variant: 'black',
+            price: 9.99,
+            currency: 'USD',
+            quantity: 1
+          }],
+          value: 7.77
+        });      
+      }
+       
+       function senduser_properties(){ 
+        var data = {};
+        var key1 = uuidv4();
+        data[key1] = key1;
+              var key2 = uuidv4();
+         data[key2] = key2;
+        gtag('set', 'user_properties', data);
+              }
+    </script>
+   
+</body>
+
+</html>
